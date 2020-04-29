@@ -1,5 +1,5 @@
 //
-//  LLNavBar.h
+//  WYANavBar.h
 //  FBSnapshotTestCase
 //
 //  Created by 李俊恒 on 2020/4/23.
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 自定义右侧按钮点击事件
 - (void)wya_rightBarButtonItemPressed:(UIButton *)sender;
 @end
-@interface LLNavBar : UIView
+@interface WYANavBar : UIView
 /// 给分页控制器使用当menuView需要显示在导航栏上使用
 @property (nonatomic, strong) UIView * pageItemView;
 /**

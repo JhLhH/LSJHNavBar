@@ -1,11 +1,11 @@
 //
-//  LLNavBar.m
+//  WYANavBar.m
 //  FBSnapshotTestCase
 //
 //  Created by 李俊恒 on 2020/4/23.
 //
 
-#import "LLNavBar.h"
+#import "WYANavBar.h"
 #import <LSJHCategory/LLCategory.h>
 #import <Masonry/Masonry.h>
 
@@ -16,7 +16,7 @@
 #define LEFT_BASE_TAG 1000
 #define RIGHT_BASE_TAG 2000
 
-@interface LLNavBar ()
+@interface WYANavBar ()
 /// 标题label
 @property (nonatomic, strong) UILabel * titleLabel;
 /// 背景图片
@@ -35,7 +35,7 @@
 @property (nonatomic, strong) UIButton * rightButtonTwo;
 
 @end
-@implementation LLNavBar
+@implementation WYANavBar
 #pragma mark ======= LifeCircle
 - (instancetype)init
 {
