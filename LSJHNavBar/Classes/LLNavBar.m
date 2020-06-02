@@ -1,11 +1,11 @@
 //
-//  WYANavBar.m
+//  LLNavBar.m
 //  FBSnapshotTestCase
 //
 //  Created by 李俊恒 on 2020/4/23.
 //
 
-#import "WYANavBar.h"
+#import "LLNavBar.h"
 #import <LSJHCategory/LLCategory.h>
 #import <Masonry/Masonry.h>
 
@@ -16,7 +16,7 @@
 #define LEFT_BASE_TAG 1000
 #define RIGHT_BASE_TAG 2000
 
-@interface WYANavBar ()
+@interface LLNavBar ()
 /// 标题label
 @property (nonatomic, strong) UILabel * titleLabel;
 /// 背景图片
@@ -35,13 +35,13 @@
 @property (nonatomic, strong) UIButton * rightButtonTwo;
 
 @end
-@implementation WYANavBar
+@implementation LLNavBar
 #pragma mark ======= LifeCircle
 - (instancetype)init
 {
     if (self = [super init]) {
         [self setDefaultVConfig];
-        self.frame           = CGRectMake(0, 0, ScreenWidth, WYATopHeight);
+        self.frame           = CGRectMake(0, 0, ScreenWidth, LLTopHeight);
         self.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.backgroundImageView];
         [self.backgroundImageView addSubview:self.navBarView];
@@ -60,7 +60,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         [self setDefaultVConfig];
-        self.frame           = CGRectMake(0, 0, ScreenWidth, WYATopHeight);
+        self.frame           = CGRectMake(0, 0, ScreenWidth, LLTopHeight);
         self.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.backgroundImageView];
         [self.backgroundImageView addSubview:self.navBarView];
@@ -79,7 +79,7 @@
     [super layoutSubviews];
 
     if ([self.cmam_viewController isKindOfClass:[UITableViewController class]]) {
-        self.frame = CGRectMake(0, -WYAStatusBarHeight, ScreenWidth, WYATopHeight);
+        self.frame = CGRectMake(0, - LLStatusBarHeight, ScreenWidth, LLTopHeight);
     }
 
     [self.backgroundImageView mas_makeConstraints:^(MASConstraintMaker * make) {
@@ -87,16 +87,16 @@
     }];
 
     [self.navBarView mas_makeConstraints:^(MASConstraintMaker * make) {
-        make.top.equalTo(self.backgroundImageView.mas_top).offset(WYAStatusBarHeight);
+        make.top.equalTo(self.backgroundImageView.mas_top).offset(LLStatusBarHeight);
         make.left.mas_equalTo(self.backgroundImageView);
-        make.size.mas_equalTo(CGSizeMake(ScreenWidth, WYANavBarHeight));
+        make.size.mas_equalTo(CGSizeMake(ScreenWidth, LLNavBarHeight));
     }];
 
     [self.pageItemView mas_makeConstraints:^(MASConstraintMaker * make) {
         make.left.equalTo(self.navBarView.mas_left).offset(46);
         make.right.equalTo(self.navBarView.mas_right).offset(-46);
         make.top.equalTo(self.navBarView.mas_top).offset(0);
-        make.height.mas_equalTo(WYANavBarHeight);
+        make.height.mas_equalTo(LLNavBarHeight);
     }];
 
     [self.leftButtonOne mas_makeConstraints:^(MASConstraintMaker * make) {
@@ -210,7 +210,7 @@
 }
 #pragma mark ======= public methods
 #pragma mark ======= right Button
-- (void)wya_addRightNavBarButtonWithNormalTitle:(NSArray<NSString *> * _Nonnull)normalTitles
+- (void)ll_addRightNavBarButtonWithNormalTitle:(NSArray<NSString *> * _Nonnull)normalTitles
 {
     [self.rightButtonOne setImage:[UIImage imageNamed:@""] forState:0];
     [self.rightButtonOne setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
@@ -230,7 +230,7 @@
         [self.rightButtonTwo setTitle:[normalTitles lastObject] forState:0];
     }
 }
-- (void)wya_addRightNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles
+- (void)ll_addRightNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles
                                     normalColor:(NSArray<UIColor *> * _Nonnull)normalColors
                                highlightedColor:(NSArray<UIColor *> * _Nonnull)highlightedColors
 {
@@ -267,7 +267,7 @@
         }
     }
 }
-- (void)wya_addRightNavBarButtonWithNormalImage:(NSArray<NSString *> *)normalImages highlightedImg:(NSArray<NSString *> *)highlightedImgs
+- (void)ll_addRightNavBarButtonWithNormalImage:(NSArray<NSString *> *)normalImages highlightedImg:(NSArray<NSString *> *)highlightedImgs
 {
     [self.rightButtonOne setTitle:@"" forState:0];
     [self.rightButtonOne setTitle:@"" forState:UIControlStateHighlighted];
@@ -296,7 +296,7 @@
 }
 #pragma mark ======= left Button
 
-- (void)wya_addLeftNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles
+- (void)ll_addLeftNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles
 {
     [self.leftButtonOne setImage:[UIImage imageNamed:@""] forState:0];
     [self.leftButtonOne setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
@@ -317,7 +317,7 @@
     }
 }
 
-- (void)wya_addLeftNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles normalColor:(NSArray<UIColor *> *)normalColors highlightedColor:(NSArray<UIColor *> *)highlightedColors
+- (void)ll_addLeftNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles normalColor:(NSArray<UIColor *> *)normalColors highlightedColor:(NSArray<UIColor *> *)highlightedColors
 {
     [self.leftButtonOne setImage:[UIImage imageNamed:@""] forState:0];
     [self.leftButtonOne setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
@@ -353,7 +353,7 @@
     }
 }
 
-- (void)wya_addLeftNavBarButtonWithNormalImage:(NSArray<NSString *> *)normalImages highlightedImg:(NSArray<NSString *> *)highlightedImgs
+- (void)ll_addLeftNavBarButtonWithNormalImage:(NSArray<NSString *> *)normalImages highlightedImg:(NSArray<NSString *> *)highlightedImgs
 {
     [self.leftButtonOne setTitle:@"" forState:0];
     [self.leftButtonOne setTitle:@"" forState:UIControlStateHighlighted];
@@ -381,7 +381,7 @@
     }
 }
 
-- (void)wya_goBackButtonWithTitle:(NSString *)title
+- (void)ll_goBackButtonWithTitle:(NSString *)title
                       normalColor:(UIColor * _Nullable)normalColor
                  highlightedColor:(UIColor * _Nullable)highlightedColor
 {
@@ -392,13 +392,13 @@
     [self.leftButtonOne setTitleColor:highlightedColor forState:UIControlStateHighlighted];
 }
 
-- (void)wya_goBackButtonWithImage:(NSString *)imageNamed
+- (void)ll_goBackButtonWithImage:(NSString *)imageNamed
 {
     [self.leftButtonOne setTitle:@"" forState:0];
     [self.leftButtonOne setTitle:@"" forState:UIControlStateHighlighted];
     [self.leftButtonOne setImage:[UIImage imageNamed:imageNamed] forState:0];
 }
-- (void)wya_customGobackWithImage:(UIImage *)image
+- (void)ll_customGobackWithImage:(UIImage *)image
 {
     [self.leftButtonOne setTitle:@"" forState:0];
     [self.leftButtonOne setTitle:@"" forState:UIControlStateHighlighted];
@@ -409,18 +409,18 @@
 /// 左侧第一个按钮点击事件
 - (void)leftButtonPressed:(UIButton *)sender
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(wya_leftBarButtonItemPressed:)]) {
-        [self.delegate wya_leftBarButtonItemPressed:sender];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(ll_leftBarButtonItemPressed:)]) {
+        [self.delegate ll_leftBarButtonItemPressed:sender];
     }
-    if (self.delegate && [self.delegate respondsToSelector:@selector(wya_goBackPressed:)]) {
-        [self.delegate wya_goBackPressed:sender];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(ll_goBackPressed:)]) {
+        [self.delegate ll_goBackPressed:sender];
     }
 }
 #pragma mark ======= rightAction
 - (void)rightButtonpressed:(UIButton *)sender
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(wya_rightBarButtonItemPressed:)]) {
-        [self.delegate wya_rightBarButtonItemPressed:sender];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(ll_rightBarButtonItemPressed:)]) {
+        [self.delegate ll_rightBarButtonItemPressed:sender];
     }
 }
 #pragma mark ======= Lazy

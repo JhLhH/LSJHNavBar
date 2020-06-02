@@ -1,5 +1,5 @@
 //
-//  WYANavBar.h
+//  LLNavBar.h
 //  FBSnapshotTestCase
 //
 //  Created by 李俊恒 on 2020/4/23.
@@ -8,18 +8,18 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol WYANavBarDelegate <NSObject>
+@protocol LLNavBarDelegate <NSObject>
 
 @optional
 
 /// 返回按钮点击事件
-- (void)wya_goBackPressed:(UIButton *)sender;
+- (void)ll_goBackPressed:(UIButton *)sender;
 /// 自定义左侧按钮点击事件
-- (void)wya_leftBarButtonItemPressed:(UIButton *)sender;
+- (void)ll_leftBarButtonItemPressed:(UIButton *)sender;
 /// 自定义右侧按钮点击事件
-- (void)wya_rightBarButtonItemPressed:(UIButton *)sender;
+- (void)ll_rightBarButtonItemPressed:(UIButton *)sender;
 @end
-@interface WYANavBar : UIView
+@interface LLNavBar : UIView
 /// 给分页控制器使用当menuView需要显示在导航栏上使用
 @property (nonatomic, strong) UIView * pageItemView;
 /**
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) CGFloat space;
 
-@property (nonatomic, weak) id<WYANavBarDelegate> delegate;
+@property (nonatomic, weak) id<LLNavBarDelegate> delegate;
 
 /**
  当需要右侧设置两个按钮时候有图片和文字不同类型时候可以给该属性复制
@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param normalTitles 需要显示的标题
  */
-- (void)wya_addRightNavBarButtonWithNormalTitle:(NSArray<NSString *> * _Nonnull)normalTitles;
+- (void)ll_addRightNavBarButtonWithNormalTitle:(NSArray<NSString *> * _Nonnull)normalTitles;
 
 /**
  创建多个导航右侧文字按钮，标题颜色自定义两种状态
@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param normalColors normalColor
  @param highlightedColors highlightedColors
  */
-- (void)wya_addRightNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles
+- (void)ll_addRightNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles
                                     normalColor:(NSArray<UIColor *> * _Nonnull)normalColors
                                highlightedColor:(NSArray<UIColor *> * _Nonnull)highlightedColors;
 
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param normalImages normalImages 必传项
  @param highlightedImgs highlightedImgs 可以为nil
  */
-- (void)wya_addRightNavBarButtonWithNormalImage:(NSArray<NSString *> * _Nonnull)normalImages
+- (void)ll_addRightNavBarButtonWithNormalImage:(NSArray<NSString *> * _Nonnull)normalImages
                                  highlightedImg:(NSArray<NSString *> *)highlightedImgs;
 
 #pragma mark ======= createLeftButton
@@ -100,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param normalTitles 需要显示的标题
  */
-- (void)wya_addLeftNavBarButtonWithNormalTitle:(NSArray<NSString *> * _Nonnull)normalTitles;
+- (void)ll_addLeftNavBarButtonWithNormalTitle:(NSArray<NSString *> * _Nonnull)normalTitles;
 
 /**
  创建多个导航左侧文字按钮，标题颜色自定义两种状态
@@ -109,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param normalColors normalColor
  @param highlightedColors highlightedColors
  */
-- (void)wya_addLeftNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles
+- (void)ll_addLeftNavBarButtonWithNormalTitle:(NSArray<NSString *> *)normalTitles
                                    normalColor:(NSArray<UIColor *> * _Nonnull)normalColors
                               highlightedColor:(NSArray<UIColor *> * _Nonnull)highlightedColors;
 
@@ -119,21 +119,21 @@ NS_ASSUME_NONNULL_BEGIN
  @param normalImages normalImages 必传项
  @param highlightedImgs highlightedImgs 可以为nil
  */
-- (void)wya_addLeftNavBarButtonWithNormalImage:(NSArray<NSString *> * _Nonnull)normalImages
+- (void)ll_addLeftNavBarButtonWithNormalImage:(NSArray<NSString *> * _Nonnull)normalImages
                                 highlightedImg:(NSArray<NSString *> *)highlightedImgs;
 
-- (void)wya_goBackButtonWithTitle:(NSString *)title
+- (void)ll_goBackButtonWithTitle:(NSString *)title
                       normalColor:(UIColor * _Nullable)normalColor
                  highlightedColor:(UIColor * _Nullable)highlightedColor;
 
-- (void)wya_goBackButtonWithImage:(NSString *)imageNamed;
+- (void)ll_goBackButtonWithImage:(NSString *)imageNamed;
 
 /**
  SDK自定义导航返回按钮
 
  @param image 返回图片
  */
-- (void)wya_customGobackWithImage:(UIImage *)image;
+- (void)ll_customGobackWithImage:(UIImage *)image;
 @end
 
 NS_ASSUME_NONNULL_END
